@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Live Camera</title>
+  </head>
+  <body>
+    <h1>Live Camera</h1>
+    <video id="video" width="640" height="480" autoplay></video>
+    <canvas id="canvas" width="640" height="480"></canvas>
+    <script>
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function (stream) {
+          var video = document.getElementById('video');
+          video.srcObject = stream;
+          video.play();
+        })
+        .catch(function (err) {
+          console.log("An error occurred: " + err);
+        });
+    </script>
+  </body>
+</html>
